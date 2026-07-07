@@ -1,0 +1,19 @@
+class Solution {
+
+    public int bal(int n,int[] dp){
+    if (n<3) return n;
+
+    if(dp[n]!=-1) return dp[n];
+    
+    dp[n] = bal(n - 1, dp) + bal(n - 2, dp);
+
+        return dp[n];
+
+    }
+    public int climbStairs(int n) {
+     int[] dp=new int[n+1];
+     Arrays.fill(dp,-1);
+
+     return bal(n,dp);
+    }
+}
